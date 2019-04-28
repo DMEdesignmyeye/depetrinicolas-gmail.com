@@ -1,0 +1,21 @@
+<%
+' Se crea el objeto
+Set Jpeg = Server.CreateObject("Persits.Jpeg")
+' Se carga la imagen a transformar
+Jpeg.Open Server.MapPath("/ejemplos/asp/test.gif")
+
+' Nuevo largo
+L = 100
+
+' Se indican los nuevos valores
+Jpeg.Width = L
+Jpeg.Height = Jpeg.OriginalHeight * L / Jpeg.OriginalWidth
+
+'Se guarda la nueva imagen
+Jpeg.Save Server.MapPath("/ejemplos/asp/test_small.gif")
+%> 
+
+Imagen original: (/ejemplos/asp/test.gif)<br/>
+<img src="/ejemplos/asp/test.gif" border="0" /><br/><br/>
+Imagen modificada: (guardada en /ejemplos/asp/test_small.gif)<br/>
+<img src="/ejemplos/asp/test_small.gif" border="0" />

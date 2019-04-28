@@ -1,0 +1,15 @@
+Formulario
+
+<FORM METHOD="POST" ENCTYPE="multipart/form-data" ACTION="test_aspupload.asp">
+   <INPUT TYPE="FILE" SIZE="40" NAME="FILE1">
+   <INPUT TYPE=SUBMIT VALUE="Subir archivos!">
+</FORM>
+
+Script de procesamiento
+
+<%
+Set Upload = Server.CreateObject("Persits.Upload")
+Count = Upload.SaveVirtual("/ejemplos")
+Response.Write Count & " archivos(s) subidos correctamente en /ejemplos"
+Set Upload = Nothing
+%>
